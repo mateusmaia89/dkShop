@@ -356,6 +356,9 @@ function JurosEditor({ open, onClose, juros, setRate, onSave, onReset, persist }
 // ============================
 export default function App() {
   // Dados
+    const isEmbed = typeof window !== 'undefined'
+    && new URLSearchParams(window.location.search).has('embed');
+  
   const { data: dAndroid, loading: lA, error: eA, reload: rA } = useNocoRecords(Noco.tables.android);
   const { data: dNovos, loading: lN, error: eN, reload: rN } = useNocoRecords(Noco.tables.iphonesNovos);
   const { data: dSemis, loading: lS, error: eS, reload: rS } = useNocoRecords(Noco.tables.iphonesSeminovos);
@@ -493,9 +496,18 @@ export default function App() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white text-gray-900">
+    return (
+  <div
+    className="min-h-screen bg-gradient-to-b from-gray-50 to-white text-gray-900"
+    style={isEmbed ? {
+      height: '100dvh',
+      overflowY: 'auto',
+      WebkitOverflowScrolling: 'touch',
+      overscrollBehavior: 'contain',
+    } : undefined}
+  >
       {/* header */}
-      <header className="sticky top-0 z-20 backdrop-blur bg-white/70 border-b border-gray-200">
+      <header className={`${isEmbed ? '' : 'sticky top-0'} z-20 backdrop-blur bg-white/70 border-b border-gray-200`}>
         <div className="mx-auto max-w-6xl px-5 py-4 flex flex-col gap-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
