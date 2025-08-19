@@ -535,14 +535,15 @@ export default function App() {
             <div className="flex items-center justify-between mb-3">
               <h3 className="text-lg font-semibold tracking-tight">Cálculo de parcelamento</h3>
               <div className="flex items-center gap-2">
-                <Pill>Taxas conforme tabela</Pill>
-                <button
-                  onClick={() => setShowEditor((v) => !v)}
-                  className="rounded-2xl border border-gray-300 bg-white px-3 py-1.5 text-xs text-gray-700 hover:bg-gray-50"
-                >
-                  {showEditor ? "Fechar juros" : "Editar juros"}
-                </button>
-              </div>
+  <Pill className="sm:hidden whitespace-nowrap">Taxas</Pill>
+  <Pill className="hidden sm:inline-flex whitespace-nowrap">Taxas conforme tabela</Pill>
+  <button
+    onClick={() => setShowEditor((v) => !v)}
+    className="rounded-2xl border border-gray-300 bg-white px-3 py-1.5 text-xs text-gray-700 hover:bg-gray-50"
+  >
+    {showEditor ? "Fechar juros" : "Editar juros"}
+  </button>
+</div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               <div>
