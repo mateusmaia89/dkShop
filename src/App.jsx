@@ -280,9 +280,9 @@ function useNocoRecords(tableId) {
 // ============================
 // UI helpers
 // ============================
-function Pill({ children }) {
+function Pill({ children, className = "" }) {
   return (
-    <span className="inline-flex items-center rounded-xl border border-gray-200 px-2 py-0.5 text-xs text-gray-600 bg-white">
+    <span className={`inline-flex items-center rounded-xl border border-gray-200 px-2 py-0.5 text-xs text-gray-600 bg-white ${className}`}>
       {children}
     </span>
   );
